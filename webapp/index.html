@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>谐波减速机测试系统</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>谐波减速机测试系统</h1>
+    <nav class="nav">
+      <a href="#home" class="nav-link">首页</a>
+      <a href="#static" class="nav-link">静态系统</a>
+      <a href="#dynamic" class="nav-link">动态系统</a>
+    </nav>
+    <div class="status">
+      <span id="conn-status" class="status-dot offline"></span>
+      <span id="last-update">未连接</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- 首页 -->
+    <section id="page-home" class="page">
+      <div class="intro">
+        <p>本系统展示谐波减速机的静态与动态测试核心指标。</p>
+        <p>数据来源：POST接口 <code>http://127.0.0.1:1880/get/datas</code></p>
+      </div>
+      <div class="card-grid">
+        <a class="card card-link" href="#static">
+          <h3>静态系统</h3>
+          <p>单向传动误差 / 空程 / 背隙 / 扭转刚度</p>
+        </a>
+        <a class="card card-link" href="#dynamic">
+          <h3>动态系统</h3>
+          <p>启动转矩 / 传动精度 / 效率 / 噪声等</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 静态系统（四项） -->
+    <section id="page-static" class="page hidden">
+      <div class="toolbar">
+        <button id="static-refresh">手动刷新</button>
+        <label><input type="checkbox" id="static-auto" /> 自动刷新</label>
+        <button id="static-view-hysteresis" class="btn">查看滞回曲线</button>
+        <button id="static-export-csv" class="btn">导出静态结果CSV</button>
+        <button id="static-export-hysteresis" class="btn">导出滞回曲线CSV</button>
+      </div>
+      <div class="control-panel">
+        <h4>控制面板（静态）</h4>
+        <div class="control-row">
+          <button id="cmd-sample-static" class="btn primary">采样一次</button>
+          <button id="cmd-reset-static" class="btn">复位</button>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="card" id="card-unidirectional_error">
+          <h3>单向传动误差</h3>
+          <div class="value-row"><span class="value" data-key="unidirectional_error">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="unidirectional_error">--</div>
+          <canvas class="chart" data-key="unidirectional_error"></canvas>
+        </div>
+        <div class="card" id="card-lost_motion">
+          <h3>空程</h3>
+          <div class="value-row"><span class="value" data-key="lost_motion">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="lost_motion">--</div>
+          <canvas class="chart" data-key="lost_motion"></canvas>
+        </div>
+        <div class="card" id="card-backlash">
+          <h3>背隙</h3>
+          <div class="value-row"><span class="value" data-key="backlash">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="backlash">--</div>
+          <canvas class="chart" data-key="backlash"></canvas>
+        </div>
+        <div class="card" id="card-torsional_stiffness">
+          <h3>扭转刚度</h3>
+          <div class="value-row"><span class="value" data-key="torsional_stiffness">--</span><span class="unit">N·m/deg</span></div>
+          <div class="timestamp" data-key-ts="torsional_stiffness">--</div>
+          <canvas class="chart" data-key="torsional_stiffness"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 动态系统（六项） -->
+    <section id="page-dynamic" class="page hidden">
+      <div class="toolbar">
+        <button id="dynamic-refresh">手动刷新</button>
+        <label><input type="checkbox" id="dynamic-auto" /> 自动刷新</label>
+        <button id="dynamic-export-csv" class="btn">导出动态结果CSV</button>
+      </div>
+      <div class="control-panel">
+          <h4>控制面板（动态）</h4>
+          <div id="test-status" class="test-status hidden"><span class="spinner"></span> 检测中：<span id="test-type-label">--</span></div>
+        <div class="control-row">
+          <label>载荷等级(L)
+            <input type="number" id="cmd-load-level" min="0" max="100" step="1" placeholder="0-100" />
+          </label>
+          <label>转速(rpm)
+            <input type="number" id="cmd-speed-rpm" min="0" max="10000" step="10" placeholder="例如 600" />
+          </label>
+          <label>测试类型
+            <select id="cmd-test-type">
+              <option value="start_torque">启动转矩</option>
+              <option value="no_load_accuracy">空载传动精度</option>
+              <option value="variable_load_accuracy">变载荷传动精度</option>
+              <option value="peak_load_accuracy">峰值载荷传动精度</option>
+              <option value="efficiency">传动效率</option>
+              <option value="noise">噪声</option>
+            </select>
+          </label>
+        </div>
+        <div class="control-row">
+          <button id="cmd-set-load" class="btn">写入载荷</button>
+          <button id="cmd-set-speed" class="btn">写入转速</button>
+          <button id="cmd-start" class="btn primary">开始测试</button>
+          <button id="cmd-stop" class="btn">停止测试</button>
+          <button id="cmd-estop" class="btn danger">急停</button>
+          <button id="cmd-reset" class="btn">复位</button>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="card" id="card-start_torque">
+          <h3>启动转矩</h3>
+          <div class="value-row"><span class="value" data-key="start_torque">--</span><span class="unit">N·m</span></div>
+          <div class="timestamp" data-key-ts="start_torque">--</div>
+          <canvas class="chart" data-key="start_torque"></canvas>
+        </div>
+        <div class="card" id="card-no_load_accuracy">
+          <h3>空载传动精度</h3>
+          <div class="value-row"><span class="value" data-key="no_load_accuracy">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="no_load_accuracy">--</div>
+          <canvas class="chart" data-key="no_load_accuracy"></canvas>
+        </div>
+        <div class="card" id="card-variable_load_accuracy">
+          <h3>变载荷传动精度</h3>
+          <div class="value-row"><span class="value" data-key="variable_load_accuracy">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="variable_load_accuracy">--</div>
+          <div class="extra" id="var-load-level">载荷：--</div>
+          <canvas class="chart" data-key="variable_load_accuracy"></canvas>
+        </div>
+        <div class="card" id="card-peak_load_accuracy">
+          <h3>峰值载荷传动精度</h3>
+          <div class="value-row"><span class="value" data-key="peak_load_accuracy">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="peak_load_accuracy">--</div>
+          <canvas class="chart" data-key="peak_load_accuracy"></canvas>
+        </div>
+        <div class="card" id="card-transmission_efficiency">
+          <h3>传动效率</h3>
+          <div class="value-row"><span class="value" data-key="transmission_efficiency">--</span><span class="unit">%</span></div>
+          <div class="timestamp" data-key-ts="transmission_efficiency">--</div>
+          <canvas class="chart" data-key="transmission_efficiency"></canvas>
+        </div>
+        <div class="card" id="card-noise_level">
+          <h3>噪声</h3>
+          <div class="value-row"><span class="value" data-key="noise_level">--</span><span class="unit">dB(A)</span></div>
+          <div class="timestamp" data-key-ts="noise_level">--</div>
+          <canvas class="chart" data-key="noise_level"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 测试系统原型 - 仅用于架构与UI展示</footer>
+  <div id="toast-container"></div>
+
+  <script src="./app.js"></script>
+  <div id="curve-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header"><span id="modal-title">滞回曲线</span><button id="modal-close" class="btn">关闭</button></div>
+      <canvas id="curve-canvas" class="curve-canvas"></canvas>
+      <div class="modal-actions">
+        <button id="curve-export-csv" class="btn">导出曲线CSV</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
