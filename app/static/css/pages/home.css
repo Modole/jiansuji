@@ -1,0 +1,35 @@
+/* 首页独立样式 */
+#page-home { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 16px; }
+
+#page-home .home-hero { max-width: 920px; width: 100%; text-align: center; margin: 20px auto 24px; }
+#page-home .home-title { font-size: 28px; margin: 0 0 12px; color: var(--text); }
+#page-home .home-subtitle { font-size: 16px; margin: 0 0 20px; color: var(--muted); }
+
+#page-home .home-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+#page-home .btn.btn-hero { font-size: 18px; padding: 14px 32px; border-radius: 14px; border: 1px solid var(--border); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+#page-home .btn.btn-hero.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+#page-home .btn.btn-hero.secondary { background: #fff; color: var(--text); }
+#page-home .btn.btn-hero:hover { filter: brightness(0.98); transform: translateY(-1px); transition: transform 0.15s ease; }
+
+#page-home .home-info { max-width: 920px; width: 100%; text-align: center; color: var(--muted); margin-top: 8px; }
+#page-home .home-info p { margin: 4px 0; }
+
+/* 移动端优化 */
+@media (max-width: 600px) {
+  #page-home .home-title { font-size: 24px; }
+  #page-home .btn.btn-hero { font-size: 16px; padding: 12px 24px; }
+}
+
+/* 保留原有卡片样式备用（目前用hero按钮替代） */
+#page-home .card-link { text-decoration: none; display: block; }
+#page-home .card-grid { display: none; }
+#page-home .card h3 { margin: 0 0 6px; }
+#page-home .card p { margin: 0; color: var(--muted); }
+
+#page-home .home-banners { max-width: 920px; width: 100%; margin: 16px auto 0; display: flex; flex-direction: column; gap: 12px; padding: 0 8px; }
+#page-home .home-banners .banner { margin: 0; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 3px 10px rgba(0,0,0,0.03); }
+#page-home .home-banners .banner .icon { font-size: 18px; }
+#page-home .home-banners .banner .label { font-weight: 600; color: var(--text); }
+#page-home .home-banners .banner .desc { color: var(--muted); }
+#page-home .home-banners .banner.static { background: linear-gradient(90deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04)); border-left: 5px solid var(--accent); }
+#page-home .home-banners .banner.dynamic { background: linear-gradient(90deg, rgba(16,185,129,0.14), rgba(16,185,129,0.05)); border-left: 5px solid #10b981; }

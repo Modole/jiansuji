@@ -1,0 +1,13 @@
+{
+  "model": "DV24",
+  "rated_voltage": 24,
+  "rated_current": 1,
+  "max_torque_nm": 2.5,
+  "rated_speed_rpm": 3000,
+  "pole_pairs": 40,
+  "inertia_kgm2": 1.5e-05,
+  "encoder_resolution": 1000,
+  "max_torque": 1,
+  "rated_speed": 100,
+  "inertia": 1
+}

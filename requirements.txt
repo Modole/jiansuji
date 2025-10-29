@@ -1,0 +1,26 @@
+# Flask核心依赖
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# CORS支持
+Flask-CORS==4.0.0
+
+# HTTP请求库
+requests==2.31.0
+
+# 环境变量管理
+python-dotenv==1.0.0
+
+# 数据处理
+numpy==1.24.3
+
+# 开发和测试依赖
+pytest==7.4.2
+pytest-flask==1.2.0
+pytest-cov==4.1.0
+
+# 代码质量
+flake8==6.0.0
+
+# 日志增强
+colorlog==6.7.0

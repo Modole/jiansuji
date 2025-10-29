@@ -1,0 +1,90 @@
+<section id="page-dynamic" class="page">
+  <div class="page-grid">
+    <div class="pane-left">
+      <div class="toolbar section-spaced">
+        <div class="toolbar-group" style="flex-direction: column; align-items: stretch; gap: 8px;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button id="dynamic-refresh" class="btn">手动刷新</button>
+            <label style="display: flex; align-items: center; gap: 4px;"><input type="checkbox" id="dynamic-auto" /> 自动刷新</label>
+          </div>
+          <button id="dynamic-export-csv" class="btn" style="width: 100%;">导出动态结果CSV</button>
+        </div>
+      </div>
+      <div class="control-panel">
+        <h4>控制面板（动态）</h4>
+        <div id="test-status" class="test-status hidden"><span class="spinner"></span> 检测中：<span id="test-type-label">--</span></div>
+        <div class="control-row" style="flex-direction: column; gap: 8px;">
+          <label style="width: 100%;">载荷等级(L)
+            <input type="number" id="cmd-load-level" min="0" max="100" step="1" placeholder="0-100" style="width: 100%; margin-top: 4px;" />
+          </label>
+          <label style="width: 100%;">转速(rpm)
+            <input type="number" id="cmd-speed-rpm" min="0" max="10000" step="10" placeholder="例如 600" style="width: 100%; margin-top: 4px;" />
+          </label>
+          <label style="width: 100%;">测试类型
+            <select id="cmd-test-type" style="width: 100%; margin-top: 4px;">
+              <option value="start_torque">启动转矩</option>
+              <option value="no_load_accuracy">空载传动精度</option>
+              <option value="variable_load_accuracy">变载荷传动精度</option>
+              <option value="peak_load_accuracy">峰值载荷传动精度</option>
+              <option value="efficiency">传动效率</option>
+              <option value="noise">噪声</option>
+            </select>
+          </label>
+        </div>
+        <div class="control-row" style="flex-direction: column; gap: 6px; margin-top: 12px;">
+          <div style="display: flex; gap: 6px;">
+            <button id="cmd-set-load" class="btn" style="flex: 1;">写入载荷</button>
+            <button id="cmd-set-speed" class="btn" style="flex: 1;">写入转速</button>
+          </div>
+          <button id="cmd-start" class="btn primary" style="width: 100%;">开始测试</button>
+          <div style="display: flex; gap: 6px;">
+            <button id="cmd-stop" class="btn" style="flex: 1;">停止测试</button>
+            <button id="cmd-estop" class="btn danger" style="flex: 1;">急停</button>
+          </div>
+          <button id="cmd-reset" class="btn" style="width: 100%;">复位</button>
+        </div>
+      </div>
+    </div>
+    <div class="pane-right">
+      <div class="card-grid">
+        <div class="card" id="card-start_torque">
+          <h3>启动转矩</h3>
+          <div class="value-row"><span class="value" data-key="start_torque">--</span><span class="unit">N·m</span></div>
+          <div class="timestamp" data-key-ts="start_torque">--</div>
+          <canvas class="chart" data-key="start_torque"></canvas>
+        </div>
+        <div class="card" id="card-no_load_accuracy">
+          <h3>空载传动精度</h3>
+          <div class="value-row"><span class="value" data-key="no_load_accuracy">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="no_load_accuracy">--</div>
+          <canvas class="chart" data-key="no_load_accuracy"></canvas>
+        </div>
+        <div class="card" id="card-variable_load_accuracy">
+          <h3>变载荷传动精度</h3>
+          <div class="value-row"><span class="value" data-key="variable_load_accuracy">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="variable_load_accuracy">--</div>
+          <div class="extra" id="var-load-level">载荷：--</div>
+          <canvas class="chart" data-key="variable_load_accuracy"></canvas>
+        </div>
+        <div class="card" id="card-peak_load_accuracy">
+          <h3>峰值载荷传动精度</h3>
+          <div class="value-row"><span class="value" data-key="peak_load_accuracy">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="peak_load_accuracy">--</div>
+          <canvas class="chart" data-key="peak_load_accuracy"></canvas>
+        </div>
+        <div class="card" id="card-transmission_efficiency">
+          <h3>传动效率</h3>
+          <div class="value-row"><span class="value" data-key="transmission_efficiency">--</span><span class="unit">%</span></div>
+          <div class="timestamp" data-key-ts="transmission_efficiency">--</div>
+          <canvas class="chart" data-key="transmission_efficiency"></canvas>
+        </div>
+        <div class="card" id="card-noise_level">
+          <h3>噪声</h3>
+          <div class="value-row"><span class="value" data-key="noise_level">--</span><span class="unit">dB(A)</span></div>
+          <div class="timestamp" data-key-ts="noise_level">--</div>
+          <canvas class="chart" data-key="noise_level"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

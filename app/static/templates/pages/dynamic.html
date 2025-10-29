@@ -1,0 +1,221 @@
+<section id="page-dynamic" class="page">
+  <div class="dynamic-layout">
+    <!-- 顶部控制区域 -->
+    <div class="dynamic-header">
+      <div class="control-panel-modern">
+        <div class="panel-header">
+          <h3>动态测试控制</h3>
+          <div class="panel-status">
+            <span class="status-indicator" id="dynamic-status-indicator"></span>
+            <span id="dynamic-status-text">就绪</span>
+          </div>
+        </div>
+        
+        <div class="control-sections">
+          <!-- 测试参数设置区域 -->
+          <div class="control-section">
+            <h4>测试参数</h4>
+            <div class="parameter-grid">
+              <div class="parameter-group">
+                <label for="cmd-load-level">载荷等级 (L)</label>
+                <input type="number" id="cmd-load-level" min="0" max="100" step="1" placeholder="0-100" class="form-input" />
+              </div>
+              <div class="parameter-group">
+                <label for="cmd-speed-rpm">转速 (rpm)</label>
+                <input type="number" id="cmd-speed-rpm" min="0" max="10000" step="10" placeholder="例如 600" class="form-input" />
+              </div>
+              <div class="parameter-group">
+                <label for="cmd-test-type">测试类型</label>
+                <select id="cmd-test-type" class="form-select">
+                  <option value="start_torque">启动转矩</option>
+                  <option value="no_load_accuracy">空载传动精度</option>
+                  <option value="variable_load_accuracy">变载荷传动精度</option>
+                  <option value="peak_load_accuracy">峰值载荷传动精度</option>
+                  <option value="efficiency">传动效率</option>
+                  <option value="noise">噪声</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- 测试控制区域 -->
+          <div class="control-section">
+            <h4>测试控制</h4>
+            <div class="test-controls">
+              <div class="control-buttons">
+                <button id="cmd-set-load" class="btn btn-outline">
+                  <span class="btn-icon">⚖️</span>
+                  写入载荷
+                </button>
+                <button id="cmd-set-speed" class="btn btn-outline">
+                  <span class="btn-icon">🔄</span>
+                  写入转速
+                </button>
+              </div>
+              <div class="test-status" id="test-status">
+                <div class="status-content hidden">
+                  <span class="spinner"></span>
+                  <span>检测中：<span id="test-type-label">--</span></span>
+                </div>
+              </div>
+              <div class="control-buttons">
+                <button id="cmd-start" class="btn btn-success btn-large">
+                  <span class="btn-icon">▶️</span>
+                  开始测试
+                </button>
+                <button id="cmd-stop" class="btn btn-secondary btn-large">
+                  <span class="btn-icon">⏹️</span>
+                  停止测试
+                </button>
+                <button id="cmd-estop" class="btn btn-danger btn-large">
+                  <span class="btn-icon">🛑</span>
+                  急停
+                </button>
+                <button id="cmd-reset" class="btn btn-outline btn-large">
+                  <span class="btn-icon">🔄</span>
+                  复位
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 采集控制区域 -->
+          <div class="control-section">
+            <h4>采集控制</h4>
+            <div class="control-buttons">
+              <button id="dynamic-start-recording" class="btn btn-success btn-large">
+                <span class="btn-icon">▶️</span>
+                开始采集
+              </button>
+              <button id="dynamic-stop-recording" class="btn btn-danger btn-large" disabled>
+                <span class="btn-icon">⏹️</span>
+                停止采集
+              </button>
+            </div>
+            <div class="setting-group">
+              <label for="dynamic-sample-rate">数据采集频率</label>
+              <input id="dynamic-sample-rate" type="number" class="form-select" min="20" max="5000" step="10" placeholder="采样周期(ms)" list="dynamic-sample-rate-list" value="500" />
+              <datalist id="dynamic-sample-rate-list">
+                <option value="25"></option>
+                <option value="50"></option>
+                <option value="100"></option>
+                <option value="200"></option>
+                <option value="250"></option>
+                <option value="500"></option>
+                <option value="1000"></option>
+                <option value="2000"></option>
+              </datalist>
+              <div class="unit-note">≈ <span id="dynamic-sample-rate-hz">--</span> Hz</div>
+            </div>
+            <button id="dynamic-export-csv" class="btn btn-primary">
+              <span class="btn-icon">📊</span>
+              导出动态结果
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据展示区域 -->
+    <div class="data-display-area">
+      <div class="metrics-grid">
+        <div class="metric-card" id="card-start_torque">
+          <div class="card-header">
+            <h3>启动转矩</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-start_torque"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="start_torque">--</span>
+            <span class="unit">N·m</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="start_torque"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-no_load_accuracy">
+          <div class="card-header">
+            <h3>空载传动精度</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-no_load_accuracy"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="no_load_accuracy">--</span>
+            <span class="unit">arcmin</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="no_load_accuracy"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-variable_load_accuracy">
+          <div class="card-header">
+            <h3>变载荷传动精度</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-variable_load_accuracy"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="variable_load_accuracy">--</span>
+            <span class="unit">arcmin</span>
+          </div>
+          <div class="metric-extra" id="var-load-level">载荷：--</div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="variable_load_accuracy"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-peak_load_accuracy">
+          <div class="card-header">
+            <h3>峰值载荷传动精度</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-peak_load_accuracy"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="peak_load_accuracy">--</span>
+            <span class="unit">arcmin</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="peak_load_accuracy"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-transmission_efficiency">
+          <div class="card-header">
+            <h3>传动效率</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-transmission_efficiency"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="transmission_efficiency">--</span>
+            <span class="unit">%</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="transmission_efficiency"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-noise_level">
+          <div class="card-header">
+            <h3>噪声</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-noise_level"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="noise_level">--</span>
+            <span class="unit">dB(A)</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="noise_level"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1 @@
+Place your application icon here as app.ico (256x256 recommended). The installer and exe will use this icon.

@@ -1,0 +1,4 @@
+/* 静态系统独立样式 */
+#page-static .control-panel h4 { margin: 0 0 8px; }
+#page-static .control-row { display: flex; gap: 8px; flex-wrap: wrap; }
+#page-static .toolbar { border-bottom: 1px dashed var(--border); padding-bottom: 8px; }

@@ -1,0 +1,185 @@
+<section id="page-static" class="page">
+  <div class="static-layout">
+    <!-- 顶部控制区域 -->
+    <div class="static-header">
+      <div class="control-panel-modern">
+        <div class="panel-header">
+          <h3>控制面板</h3>
+          <div class="panel-status">
+            <span class="status-indicator" id="static-status-indicator"></span>
+            <span id="static-status-text">就绪</span>
+          </div>
+        </div>
+        
+        <div class="control-sections">
+          <!-- 采样控制区域 -->
+          <div class="control-section">
+            <h4>采样控制</h4>
+            <div class="control-buttons">
+              <button id="cmd-sample-static" class="btn btn-primary btn-large">
+                <span class="btn-icon">📊</span>
+                采样一次
+              </button>
+              <button id="cmd-reset-static" class="btn btn-secondary btn-large">
+                <span class="btn-icon">🔄</span>
+                复位
+              </button>
+            </div>
+          </div>
+
+          <!-- 采集设置区域 -->
+          <div class="control-section">
+            <h4>采集设置</h4>
+            <div class="setting-group">
+              <label for="static-sample-rate">数据采集频率</label>
+              <input id="static-sample-rate" type="number" class="form-select" min="20" max="5000" step="10" placeholder="采样周期(ms)" list="static-sample-rate-list" value="500" />
+              <datalist id="static-sample-rate-list">
+                <option value="25"></option>
+                <option value="50"></option>
+                <option value="100"></option>
+                <option value="200"></option>
+                <option value="250"></option>
+                <option value="500"></option>
+                <option value="1000"></option>
+                <option value="2000"></option>
+              </datalist>
+              <div class="unit-note">≈ <span id="static-sample-rate-hz">--</span> Hz</div>
+            </div>
+          </div>
+
+          <!-- 采集控制区域 -->
+          <div class="control-section">
+            <h4>采集控制</h4>
+            <div class="control-buttons">
+              <button id="static-start-recording" class="btn btn-success btn-large">
+                <span class="btn-icon">▶️</span>
+                开始采集
+              </button>
+              <button id="static-stop-recording" class="btn btn-danger btn-large" disabled>
+                <span class="btn-icon">⏹️</span>
+                停止采集
+              </button>
+            </div>
+          </div>
+
+          <!-- 导出功能区域 -->
+          <div class="control-section">
+            <h4>数据导出</h4>
+            <div class="export-buttons">
+              <button id="static-export-csv" class="btn btn-outline">
+                <span class="btn-icon">📄</span>
+                导出静态结果
+              </button>
+              <!-- 移除：导出滞回曲线按钮已上移到曲线区域 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据展示区域 -->
+    <div class="data-display-area">
+      <div class="metrics-grid">
+        <div class="metric-card" id="card-unidirectional_error">
+          <div class="card-header">
+            <h3>单向传动误差</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-unidirectional_error"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="unidirectional_error">--</span>
+            <span class="unit">arcmin</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="unidirectional_error"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-lost_motion">
+          <div class="card-header">
+            <h3>空程</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-lost_motion"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="lost_motion">--</span>
+            <span class="unit">arcmin</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="lost_motion"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-backlash">
+          <div class="card-header">
+            <h3>背隙</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-backlash"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="backlash">--</span>
+            <span class="unit">arcmin</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="backlash"></canvas>
+          </div>
+        </div>
+
+        <div class="metric-card" id="card-torsional_stiffness">
+          <div class="card-header">
+            <h3>扭转刚度</h3>
+            <div class="card-status">
+              <span class="status-dot" id="status-torsional_stiffness"></span>
+            </div>
+          </div>
+          <div class="metric-value">
+            <span class="value" data-key="torsional_stiffness">--</span>
+            <span class="unit">N·m/deg</span>
+          </div>
+          <div class="metric-chart">
+            <canvas class="chart" data-key="torsional_stiffness"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 滞回曲线区域 -->
+    <div class="hysteresis-section">
+      <div class="section-header">
+        <h3>滞回曲线</h3>
+        <div class="curve-controls">
+          <div class="curve-info">
+            <span class="info-item">
+              <span class="info-label">数据点:</span>
+              <span id="hysteresis-points-count">0</span>
+            </span>
+            <span class="info-item">
+              <span class="info-label">更新时间:</span>
+              <span id="hysteresis-last-update">--</span>
+            </span>
+          </div>
+          <div class="curve-actions">
+            <button id="clear-hysteresis" class="btn btn-sm btn-outline">
+              <span class="btn-icon">🗑️</span>
+              清除数据
+            </button>
+            <button id="static-export-hysteresis" class="btn btn-sm btn-outline">
+              <span class="btn-icon">📈</span>
+              导出滞回曲线
+            </button>
+            <button id="export-hysteresis-png" class="btn btn-sm btn-outline">
+              <span class="btn-icon">🖼️</span>
+              导出图片
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="curve-container">
+        <canvas id="static-hysteresis-canvas" class="hysteresis-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 (function(){
-  const ENDPOINT = 'http://127.0.0.1:1880/get/datas';
-  const CMD_ENDPOINT = 'http://127.0.0.1:1880/set/data';
+  const API_BASE = 'http://127.0.0.1:5001';
+  const ENDPOINT = `${API_BASE}/api/data/measurements`;
+  const CMD_ENDPOINT = `${API_BASE}/api/command/set/data`;
   const KEYS_STATIC = ['unidirectional_error','lost_motion','backlash','torsional_stiffness'];
   const KEYS_DYNAMIC = ['start_torque','no_load_accuracy','variable_load_accuracy','peak_load_accuracy','transmission_efficiency','noise_level'];
   const ALL_KEYS = [...KEYS_STATIC, ...KEYS_DYNAMIC];
@@ -98,7 +99,7 @@
   async function sendCommand(cmd, params){
     try{
       const meta = commandsMap?.[cmd] || {};
-      const payload = { cmd, params: params || {}, addr: meta.address || meta.addr };
+      const payload = { command: cmd, params: params || {}, addr: meta.address || meta.addr };
       const raw = await fetchPostJson(CMD_ENDPOINT, payload);
       showToast(`命令已下发：${cmd}`, 'success');
       return raw;
@@ -399,7 +400,7 @@ function exportDynamicCSV() { const rows = collectCurrentValues('page-dynamic');
 
 async function fetchHysteresisPoints() {
   try {
-    const resp = await fetchGetJson('/get/datas?hysteresis=1');
+    const resp = await fetchGetJson(`${API_BASE}/api/data/hysteresis`);
     if (resp && resp.hysteresis && Array.isArray(resp.hysteresis)) {
       return resp.hysteresis;
     }
@@ -493,6 +494,7 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modal-close')?.addEventListener('click', closeCurveModal);
   document.querySelector('#curve-modal .modal-overlay')?.addEventListener('click', closeCurveModal);
   document.getElementById('curve-export-csv')?.addEventListener('click', exportHysteresisCSV);
+  document.getElementById('curve-export-image')?.addEventListener('click', exportHysteresisImage);
   document.getElementById('static-export-csv')?.addEventListener('click', exportStaticCSV);
   document.getElementById('dynamic-export-csv')?.addEventListener('click', exportDynamicCSV);
   document.getElementById('static-export-hysteresis')?.addEventListener('click', exportHysteresisCSV);
@@ -508,3 +510,13 @@ window.addEventListener('resize', () => {
     drawXYCurve('curve-canvas', curveStore.hysteresis, { xLabel:'角位移', yLabel:'扭矩' });
   }
 });
+
+function exportHysteresisImage() {
+  const canvas = document.getElementById('curve-canvas');
+  if (!canvas) return;
+  const url = canvas.toDataURL('image/png');
+  const a = document.createElement('a');
+  a.href = url; a.download = `滞回曲线_${Date.now()}.png`;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { a.remove(); }, 0);
+}

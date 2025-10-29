@@ -1,0 +1,13 @@
+{
+  "unidirectional_error": "ADDR_UNI_ERROR",
+  "lost_motion": "ADDR_LOST_MOTION",
+  "backlash": "ADDR_BACKLASH",
+  "torsional_stiffness": "ADDR_TORSIONAL_STIFFNESS",
+
+  "start_torque": "ADDR_START_TORQUE",
+  "no_load_accuracy": "ADDR_NO_LOAD_ACC",
+  "variable_load_accuracy": "ADDR_VAR_LOAD_ACC",
+  "peak_load_accuracy": "ADDR_PEAK_LOAD_ACC",
+  "transmission_efficiency": "ADDR_EFFICIENCY",
+  "noise_level": "ADDR_NOISE"
+}

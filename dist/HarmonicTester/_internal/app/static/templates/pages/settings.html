@@ -1,0 +1,117 @@
+<section id="page-settings" class="page">
+  <div class="settings-grid">
+    <div class="settings-card">
+      <h3>电机型号与参数</h3>
+      <div class="control-row">
+        <label>电机型号
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <select id="motor-model-select" style="flex: 1;"></select>
+            <button id="add-motor-btn" class="btn" title="添加新电机">+</button>
+            <button id="edit-motor-btn" class="btn" title="编辑当前电机">编辑</button>
+            <button id="delete-motor-btn" class="btn danger" title="删除当前电机">删除</button>
+          </div>
+        </label>
+      </div>
+      <div class="grid-2">
+        <label>额定电压(V)
+          <input type="number" id="motor-rated-voltage" step="1" />
+        </label>
+        <label>额定电流(A)
+          <input type="number" id="motor-rated-current" step="0.1" />
+        </label>
+        <label>最大转矩(N·m)
+          <input type="number" id="motor-max-torque" step="0.1" />
+        </label>
+        <label>额定转速(rpm)
+          <input type="number" id="motor-rated-speed" step="10" />
+        </label>
+        <label>极对数
+          <input type="number" id="motor-pole-pairs" step="1" />
+        </label>
+        <label>转动惯量(kg·m²)
+          <input type="number" id="motor-inertia" step="0.000001" />
+        </label>
+        <label>编码器分辨率
+          <input type="number" id="motor-encoder-res" step="1" />
+        </label>
+      </div>
+      <div class="toolbar">
+        <button id="settings-save" class="btn primary">保存设置</button>
+        <button id="settings-reset" class="btn">恢复默认</button>
+      </div>
+      <div class="note">更改会自动记忆，并可同步到服务器。</div>
+    </div>
+
+    <!-- 电机编辑模态框 -->
+    <div id="motor-edit-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+          <h3 id="motor-modal-title">添加电机</h3>
+          <button id="motor-modal-close" class="btn">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="control-row">
+            <label>电机型号名称
+              <input type="text" id="motor-name-input" placeholder="请输入电机型号名称" />
+            </label>
+          </div>
+          <div class="grid-2">
+            <label>额定电压(V)
+              <input type="number" id="modal-motor-rated-voltage" step="1" />
+            </label>
+            <label>额定电流(A)
+              <input type="number" id="modal-motor-rated-current" step="0.1" />
+            </label>
+            <label>最大转矩(N·m)
+              <input type="number" id="modal-motor-max-torque" step="0.1" />
+            </label>
+            <label>额定转速(rpm)
+              <input type="number" id="modal-motor-rated-speed" step="10" />
+            </label>
+            <label>极对数
+              <input type="number" id="modal-motor-pole-pairs" step="1" />
+            </label>
+            <label>转动惯量(kg·m²)
+              <input type="number" id="modal-motor-inertia" step="0.000001" />
+            </label>
+            <label>编码器分辨率
+              <input type="number" id="modal-motor-encoder-res" step="1" />
+            </label>
+          </div>
+          <div class="toolbar">
+            <button id="motor-save-btn" class="btn primary">保存</button>
+            <button id="motor-cancel-btn" class="btn">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="settings-card">
+      <h3>数据连接配置</h3>
+      <div class="control-row">
+        <label>数据采集地址
+          <input type="text" id="data-collection-url" placeholder="http://localhost:8080/api/collect" />
+        </label>
+      </div>
+      <div class="control-row">
+        <label>数据写入地址
+          <input type="text" id="data-write-url" placeholder="http://localhost:8080/api/write" />
+        </label>
+      </div>
+      <div class="toolbar">
+        <button id="connection-test" class="btn">测试连接</button>
+        <button id="connection-save" class="btn primary">保存配置</button>
+      </div>
+      <div class="note">配置数据采集和写入的服务器地址，用于系统数据交互。</div>
+    </div>
+    
+    <div class="settings-card">
+      <h3>应用状态</h3>
+      <div class="status-row">当前型号：<span id="current-model">--</span></div>
+      <div class="status-row">设置来源：<span id="settings-source">local</span></div>
+      <div class="status-row">采集连接：<span id="collection-status">未配置</span></div>
+      <div class="status-row">写入连接：<span id="write-status">未配置</span></div>
+    </div>
+  </div>
+</section>

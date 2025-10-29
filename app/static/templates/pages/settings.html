@@ -1,0 +1,229 @@
+<section id="page-settings" class="page">
+  <div class="settings-layout">
+    <!-- 页面标题 -->
+    <div class="settings-header">
+      <h2>系统设置</h2>
+      <p>配置电机参数、连接设置和系统状态</p>
+    </div>
+
+    <!-- 设置卡片网格 -->
+    <div class="settings-grid">
+      <!-- 电机型号与参数卡片 -->
+      <div class="settings-card motor-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">⚙️</span>
+            <h3>电机型号与参数</h3>
+          </div>
+          <div class="card-status">
+            <span class="status-dot" id="motor-status"></span>
+            <span id="motor-status-text">已配置</span>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="form-section">
+            <label class="form-label">电机型号</label>
+            <div class="input-group">
+              <select id="motor-model-select" class="form-select" title="选择电机型号">
+                <option value="">请选择电机型号</option>
+              </select>
+              <div class="input-actions">
+                <button id="add-motor-btn" class="btn btn-outline btn-sm" title="添加新电机">
+                  <span class="btn-icon">➕</span>
+                </button>
+                <button id="edit-motor-btn" class="btn btn-outline btn-sm" title="编辑当前电机">
+                  <span class="btn-icon">✏️</span>
+                </button>
+                <button id="delete-motor-btn" class="btn btn-danger btn-sm" title="删除当前电机">
+                  <span class="btn-icon">🗑️</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">额定电压 (V)</label>
+              <input type="number" id="motor-rated-voltage" step="1" class="form-input" placeholder="例如: 24" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">额定电流 (A)</label>
+              <input type="number" id="motor-rated-current" step="0.1" class="form-input" placeholder="例如: 2.5" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">最大转矩 (N·m)</label>
+              <input type="number" id="motor-max-torque" step="0.1" class="form-input" placeholder="例如: 0.5" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">额定转速 (rpm)</label>
+              <input type="number" id="motor-rated-speed" step="10" class="form-input" placeholder="例如: 3000" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">极对数</label>
+              <input type="number" id="motor-pole-pairs" step="1" class="form-input" placeholder="例如: 4" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">转动惯量 (kg·m²)</label>
+              <input type="number" id="motor-inertia" step="0.000001" class="form-input" placeholder="例如: 0.0001" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">编码器分辨率</label>
+              <input type="number" id="motor-encoder-res" step="1" class="form-input" placeholder="例如: 1000" />
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button id="settings-save" class="btn btn-primary">
+              <span class="btn-icon">💾</span>
+              保存设置
+            </button>
+            <button id="settings-reset" class="btn btn-outline">
+              <span class="btn-icon">🔄</span>
+              恢复默认
+            </button>
+          </div>
+          
+          <div class="card-note">
+            <span class="note-icon">ℹ️</span>
+            更改会自动记忆，并可同步到服务器。
+          </div>
+        </div>
+      </div>
+
+      <!-- 数据连接配置卡片 -->
+      <div class="settings-card connection-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">🌐</span>
+            <h3>数据连接配置</h3>
+          </div>
+          <div class="card-status">
+            <span class="status-dot" id="connection-status"></span>
+            <span id="connection-status-text">未连接</span>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="form-section">
+            <label class="form-label">数据采集地址</label>
+            <input type="text" id="data-collection-url" class="form-input" placeholder="http://localhost:8080/api/collect" />
+          </div>
+          
+          <div class="form-section">
+            <label class="form-label">数据写入地址</label>
+            <input type="text" id="data-write-url" class="form-input" placeholder="http://localhost:8080/api/write" />
+          </div>
+
+          <div class="card-actions">
+            <button id="connection-test" class="btn btn-outline">
+              <span class="btn-icon">🔍</span>
+              测试连接
+            </button>
+            <button id="connection-save" class="btn btn-primary">
+              <span class="btn-icon">💾</span>
+              保存配置
+            </button>
+          </div>
+          
+          <div class="card-note">
+            <span class="note-icon">ℹ️</span>
+            配置数据采集和写入的服务器地址，用于系统数据交互。
+          </div>
+        </div>
+      </div>
+
+      <!-- 应用状态卡片 -->
+      <div class="settings-card status-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon">📊</span>
+            <h3>应用状态</h3>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="status-grid">
+            <div class="status-item">
+              <span class="status-label">当前型号</span>
+              <span class="status-value" id="current-model">--</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">设置来源</span>
+              <span class="status-value" id="settings-source">local</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">采集连接</span>
+              <span class="status-value" id="collection-status">未配置</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">写入连接</span>
+              <span class="status-value" id="write-status">未配置</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 电机编辑模态框 -->
+    <div id="motor-edit-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="motor-modal-title">添加电机</h3>
+          <button id="motor-modal-close" class="btn btn-outline btn-sm">
+            <span class="btn-icon">✕</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-section">
+            <label class="form-label">电机型号名称</label>
+            <input type="text" id="motor-name-input" class="form-input" placeholder="请输入电机型号名称" />
+          </div>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-rated-voltage">额定电压 (V)</label>
+              <input type="number" id="modal-motor-rated-voltage" step="1" class="form-input" placeholder="例如: 24" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-rated-current">额定电流 (A)</label>
+              <input type="number" id="modal-motor-rated-current" step="0.1" class="form-input" placeholder="例如: 2.5" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-max-torque">最大转矩 (N·m)</label>
+              <input type="number" id="modal-motor-max-torque" step="0.1" class="form-input" placeholder="例如: 0.5" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-rated-speed">额定转速 (rpm)</label>
+              <input type="number" id="modal-motor-rated-speed" step="10" class="form-input" placeholder="例如: 3000" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-pole-pairs">极对数</label>
+              <input type="number" id="modal-motor-pole-pairs" step="1" class="form-input" placeholder="例如: 4" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-inertia">转动惯量 (kg·m²)</label>
+              <input type="number" id="modal-motor-inertia" step="0.000001" class="form-input" placeholder="例如: 0.0001" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modal-motor-encoder-res">编码器分辨率</label>
+              <input type="number" id="modal-motor-encoder-res" step="1" class="form-input" placeholder="例如: 1000" />
+            </div>
+          </div>
+          
+          <div class="modal-actions">
+            <button id="motor-save-btn" class="btn btn-primary">
+              <span class="btn-icon">💾</span>
+              保存
+            </button>
+            <button id="motor-cancel-btn" class="btn btn-outline">
+              <span class="btn-icon">✕</span>
+              取消
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

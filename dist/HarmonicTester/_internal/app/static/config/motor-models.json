@@ -1,0 +1,42 @@
+[
+  {
+    "model": "HD-20-EP",
+    "rated_voltage": 48,
+    "rated_current": 4.0,
+    "max_torque_nm": 2.0,
+    "rated_speed_rpm": 3000,
+    "pole_pairs": 4,
+    "inertia_kgm2": 0.000012,
+    "encoder_resolution": 2048
+  },
+  {
+    "model": "HD-25-HP",
+    "rated_voltage": 48,
+    "rated_current": 6.5,
+    "max_torque_nm": 3.2,
+    "rated_speed_rpm": 3000,
+    "pole_pairs": 5,
+    "inertia_kgm2": 0.000019,
+    "encoder_resolution": 4096
+  },
+  {
+    "model": "HD-32-EP",
+    "rated_voltage": 48,
+    "rated_current": 8.0,
+    "max_torque_nm": 5.0,
+    "rated_speed_rpm": 2500,
+    "pole_pairs": 6,
+    "inertia_kgm2": 0.000035,
+    "encoder_resolution": 8192
+  },
+  {
+    "model": "Custom",
+    "rated_voltage": 48,
+    "rated_current": 5.0,
+    "max_torque_nm": 2.5,
+    "rated_speed_rpm": 3000,
+    "pole_pairs": 4,
+    "inertia_kgm2": 0.000015,
+    "encoder_resolution": 2048
+  }
+]

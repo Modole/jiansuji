@@ -1,0 +1,54 @@
+<section id="page-static" class="page">
+  <div class="page-grid">
+    <div class="pane-left">
+      <div class="toolbar section-spaced">
+        <div class="toolbar-group" style="flex-direction: column; align-items: stretch; gap: 8px;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button id="static-refresh" class="btn">手动刷新</button>
+            <label style="display: flex; align-items: center; gap: 4px;"><input type="checkbox" id="static-auto" /> 自动刷新</label>
+          </div>
+          <button id="static-view-hysteresis" class="btn" style="width: 100%;">查看滞回曲线</button>
+          <div style="display: flex; gap: 8px;">
+            <button id="static-export-csv" class="btn" style="flex: 1;">导出静态结果CSV</button>
+            <button id="static-export-hysteresis" class="btn" style="flex: 1;">导出滞回曲线CSV</button>
+          </div>
+        </div>
+      </div>
+      <div class="control-panel">
+        <h4>控制面板（静态）</h4>
+        <div class="control-row" style="flex-direction: column; gap: 8px;">
+          <button id="cmd-sample-static" class="btn primary" style="width: 100%;">采样一次</button>
+          <button id="cmd-reset-static" class="btn" style="width: 100%;">复位</button>
+        </div>
+      </div>
+    </div>
+    <div class="pane-right">
+      <div class="card-grid">
+        <div class="card" id="card-unidirectional_error">
+          <h3>单向传动误差</h3>
+          <div class="value-row"><span class="value" data-key="unidirectional_error">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="unidirectional_error">--</div>
+          <canvas class="chart" data-key="unidirectional_error"></canvas>
+        </div>
+        <div class="card" id="card-lost_motion">
+          <h3>空程</h3>
+          <div class="value-row"><span class="value" data-key="lost_motion">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="lost_motion">--</div>
+          <canvas class="chart" data-key="lost_motion"></canvas>
+        </div>
+        <div class="card" id="card-backlash">
+          <h3>背隙</h3>
+          <div class="value-row"><span class="value" data-key="backlash">--</span><span class="unit">arcmin</span></div>
+          <div class="timestamp" data-key-ts="backlash">--</div>
+          <canvas class="chart" data-key="backlash"></canvas>
+        </div>
+        <div class="card" id="card-torsional_stiffness">
+          <h3>扭转刚度</h3>
+          <div class="value-row"><span class="value" data-key="torsional_stiffness">--</span><span class="unit">N·m/deg</span></div>
+          <div class="timestamp" data-key-ts="torsional_stiffness">--</div>
+          <canvas class="chart" data-key="torsional_stiffness"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

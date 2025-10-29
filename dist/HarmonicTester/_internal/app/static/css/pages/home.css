@@ -1,0 +1,32 @@
+/* 首页独立样式 */
+#page-home .intro { margin-bottom: 16px; color: var(--muted); }
+#page-home .card-link { text-decoration: none; display: block; }
+#page-home .card-link h3 { margin: 0 0 6px; }
+#page-home .card-link p { margin: 0; color: var(--muted); }
+
+/* 首页卡片网格放大样式 */
+#page-home .card-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+  gap: 24px; 
+  margin-top: 40px;
+}
+
+#page-home .card {
+  padding: 32px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#page-home .card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+#page-home .card p {
+  font-size: 16px;
+  line-height: 1.5;
+}

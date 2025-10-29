@@ -1,0 +1,9 @@
+{
+  "set_load_level": "ADDR_SET_LOAD_LEVEL",
+  "set_speed_rpm": "ADDR_SET_SPEED",
+  "start_test": "ADDR_CMD_START",
+  "stop_test": "ADDR_CMD_STOP",
+  "emergency_stop": "ADDR_CMD_ESTOP",
+  "reset": "ADDR_CMD_RESET",
+  "sample_static": "ADDR_CMD_SAMPLE_STATIC"
+}

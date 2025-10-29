@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>谐波减速机测试系统</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="stylesheet" href="/static/css/pages/static.css" />
+  <link rel="stylesheet" href="/static/css/pages/dynamic.css" />
+  <link rel="stylesheet" href="/static/css/pages/settings.css" />
+  <!-- 新增首页样式 -->
+  <link rel="stylesheet" href="/static/css/pages/home.css" />
+
+</head>
+<body>
+  <header class="app-header">
+    <h1>谐波减速机测试系统</h1>
+    <nav class="nav">
+      <a href="#home" class="nav-link">首页</a>
+      <a href="#static" class="nav-link">静态系统</a>
+      <a href="#dynamic" class="nav-link">动态系统</a>
+      <a href="#settings" class="nav-link">设置</a>
+    </nav>
+    <div class="header-controls">
+      <select id="header-motor-select" class="header-select" title="选择电机型号"></select>
+    </div>
+    <div class="status">
+      <span id="conn-status" class="status-dot offline"></span>
+      <span id="last-update">未连接</span>
+      <span class="divider">|</span>
+      <span>当前电机：<strong id="header-model">--</strong></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div id="page-host"></div>
+    </div>
+  </main>
+
+  <footer class="footer">© 测试系统</footer>
+  <div id="toast-container"></div>
+
+  <script src="/static/js/app.js"></script>
+  <div id="curve-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="modal-title">曲线</span>
+        <div class="modal-controls">
+          <button id="start-recording" class="btn btn-success">开始记录</button>
+          <button id="stop-recording" class="btn btn-danger" disabled>停止记录</button>
+          <button id="clear-data" class="btn btn-warning">清除数据</button>
+          <button id="modal-close" class="btn">关闭</button>
+        </div>
+      </div>
+      <div class="curve-type-selector">
+        <label for="curve-type-select">曲线类型:</label>
+        <select id="curve-type-select" class="form-select">
+          <option value="hysteresis">完整滞回曲线</option>
+          <option value="forward">正向曲线</option>
+          <option value="reverse">反向曲线</option>
+        </select>
+        <div class="curve-legend">
+          <span class="legend-item">
+            <span class="legend-color" style="background-color: #3b82f6;"></span>
+            <span class="legend-text">完整滞回曲线</span>
+          </span>
+          <span class="legend-item">
+            <span class="legend-color" style="background-color: #10b981;"></span>
+            <span class="legend-text">正向曲线</span>
+          </span>
+          <span class="legend-item">
+            <span class="legend-color" style="background-color: #f59e0b;"></span>
+            <span class="legend-text">反向曲线</span>
+          </span>
+        </div>
+        <!-- 新增：多曲线显示与线型选择 -->
+        <div class="multi-series-controls" style="margin-top:8px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+          <div class="series-toggles" style="display:flex; gap:8px; align-items:center;">
+            <label><input type="checkbox" id="show-hysteresis" checked /> 显示完整</label>
+            <label><input type="checkbox" id="show-forward" checked /> 显示正向</label>
+            <label><input type="checkbox" id="show-reverse" checked /> 显示反向</label>
+          </div>
+          <div class="line-style" style="display:flex; gap:6px; align-items:center;">
+            <label for="line-style-select">线型:</label>
+            <select id="line-style-select" class="form-select">
+              <option value="straight">直线</option>
+              <option value="curve">曲线</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="recording-status">
+        <span id="recording-indicator" class="status-indicator"></span>
+        <span id="recording-info">点击"开始记录"开始实时数据采集</span>
+      </div>
+      <div class="time-axis-info" id="time-axis-info" style="display: none;">
+        <small>时间轴: <span id="duration-display">0秒</span> | 数据点: <span id="points-count">0</span></small>
+      </div>
+      <canvas id="curve-canvas" class="curve-canvas"></canvas>
+      <div class="modal-actions">
+        <button id="curve-export-csv" class="btn">导出曲线CSV</button>
+        <button id="curve-export-png" class="btn">导出曲线PNG</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
