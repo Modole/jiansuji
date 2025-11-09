@@ -163,3 +163,423 @@
 2025-10-30 14:29:19,928 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
 2025-10-30 14:29:19,928 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
 2025-10-30 14:29:19,992 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4134,"timestamp":"2025-10-30 14:29:19","response_size":993}
+2025-11-08 07:25:11,946 - INFO - __main__ - 应用名称: app
+2025-11-08 07:25:11,946 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:25:11,946 - INFO - __main__ - 环境: development
+2025-11-08 07:25:11,946 - INFO - __main__ - 调试模式: False
+2025-11-08 07:25:11,947 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:25:17,595 - INFO - request - 请求: GET /
+2025-11-08 07:25:17,858 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:25:18,144 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:25:18,145 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:25:18,146 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:25:18,147 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:25:18,148 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:25:18,523 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:25:18,524 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:25:18,524 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:25:18,525 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:25:18,774 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:18,777 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:18,842 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:18,844 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:18,857 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:25:18,857 - INFO - request - 请求: GET /@vite/client
+2025-11-08 07:25:19,081 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:25:19,170 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:25:19,173 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":3,"timestamp":"2025-11-08 07:25:19","response_size":366}
+2025-11-08 07:25:19,344 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:25:20,387 - INFO - request - 请求: GET /
+2025-11-08 07:25:20,640 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:25:20,753 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:25:20,754 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:25:20,754 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:25:20,755 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:25:20,755 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:25:21,142 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:25:21,143 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:25:21,143 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:25:21,144 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:25:21,163 - INFO - request - 请求: GET /favicon.ico
+2025-11-08 07:25:21,392 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:21,393 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:21,599 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:21,600 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:25:21,602 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:21,612 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:25:21,913 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:25:21,996 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:25:21,998 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:25:21","response_size":366}
+2025-11-08 07:25:22,799 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:22,799 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:22,852 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:22,853 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:22,879 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4104,"timestamp":"2025-11-08 07:25:22","response_size":993}
+2025-11-08 07:25:22,944 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4101,"timestamp":"2025-11-08 07:25:22","response_size":993}
+2025-11-08 07:25:23,587 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:23,590 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:24,085 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:25:24,089 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":3,"timestamp":"2025-11-08 07:25:24","response_size":366}
+2025-11-08 07:25:24,198 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:25:24,200 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:25:24","response_size":366}
+2025-11-08 07:25:24,779 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:24,781 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:25,419 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:25,419 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:25,489 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4097,"timestamp":"2025-11-08 07:25:25","response_size":993}
+2025-11-08 07:25:25,616 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:25,616 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:25,655 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:25:25,657 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:25:25,701 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4100,"timestamp":"2025-11-08 07:25:25","response_size":993}
+2025-11-08 07:25:25,856 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:25:25,859 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:25:25","response_size":366}
+2025-11-08 07:25:25,977 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:25:25,980 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:25:25","response_size":366}
+2025-11-08 07:25:27,612 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:27,613 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:27,693 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4104,"timestamp":"2025-11-08 07:25:27","response_size":993}
+2025-11-08 07:25:28,792 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:28,793 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:28,959 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4180,"timestamp":"2025-11-08 07:25:28","response_size":993}
+2025-11-08 07:25:29,678 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:25:29,678 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:25:29,743 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4087,"timestamp":"2025-11-08 07:25:29","response_size":993}
+2025-11-08 07:25:54,124 - INFO - __main__ - 应用名称: app
+2025-11-08 07:25:54,125 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:25:54,125 - INFO - __main__ - 环境: development
+2025-11-08 07:25:54,125 - INFO - __main__ - 调试模式: False
+2025-11-08 07:25:54,125 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:27:00,384 - INFO - request - 请求: GET /
+2025-11-08 07:27:00,744 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:27:01,037 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:27:01,037 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:27:01,039 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:27:01,041 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:27:01,041 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:27:01,388 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:27:01,390 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:27:01,390 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:27:01,392 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:27:01,640 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:27:01,641 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:27:01,712 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:27:01,713 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:27:01,715 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:27:01,723 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:27:02,043 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:27:02,215 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:27:02,215 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:27:02,216 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:27:02,218 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:27:02","response_size":366}
+2025-11-08 07:27:02,218 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:27:02","response_size":366}
+2025-11-08 07:27:02,219 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":3,"timestamp":"2025-11-08 07:27:02","response_size":366}
+2025-11-08 07:27:05,678 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:27:05,678 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:27:05,736 - INFO - request - 请求: GET /
+2025-11-08 07:27:05,737 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:27:05,737 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:27:05,758 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:27:05,797 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4157,"timestamp":"2025-11-08 07:27:05","response_size":993}
+2025-11-08 07:27:05,848 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4135,"timestamp":"2025-11-08 07:27:05","response_size":993}
+2025-11-08 07:27:06,060 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:27:06,061 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:27:06,061 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:27:06,062 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:27:06,062 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:27:06,392 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:27:06,392 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:27:06,392 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:27:06,393 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:27:06,405 - INFO - request - 请求: GET /@vite/client
+2025-11-08 07:27:06,641 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:27:06,643 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:27:06,711 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:27:06,712 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:27:06,714 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:27:06,720 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:27:07,032 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:27:07,216 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:27:07,218 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:27:07","response_size":366}
+2025-11-08 07:27:10,652 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:27:10,653 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:27:10,725 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:27:10,726 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:27:10,733 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4092,"timestamp":"2025-11-08 07:27:10","response_size":993}
+2025-11-08 07:27:10,816 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4104,"timestamp":"2025-11-08 07:27:10","response_size":993}
+2025-11-08 07:33:58,433 - INFO - __main__ - 应用名称: app
+2025-11-08 07:33:58,433 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:33:58,433 - INFO - __main__ - 环境: development
+2025-11-08 07:33:58,433 - INFO - __main__ - 调试模式: False
+2025-11-08 07:33:58,433 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:45:49,243 - INFO - __main__ - 应用名称: app
+2025-11-08 07:45:49,243 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:45:49,243 - INFO - __main__ - 环境: development
+2025-11-08 07:45:49,243 - INFO - __main__ - 调试模式: False
+2025-11-08 07:45:49,244 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:45:51,510 - INFO - request - 请求: GET /
+2025-11-08 07:45:51,826 - INFO - request - 请求: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 07:45:52,165 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:45:52,171 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:45:52,171 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:45:52,172 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:45:52,174 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:45:52,177 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:45:52,590 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:45:52,594 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:45:52,595 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:45:52,596 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:45:52,840 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:45:52,842 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:45:52,922 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:45:52,923 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:45:52,925 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:45:52,935 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:45:53,250 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:45:53,426 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:45:53,430 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":3,"timestamp":"2025-11-08 07:45:53","response_size":366}
+2025-11-08 07:45:56,872 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:45:56,873 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:45:56,946 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:45:56,947 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:45:56,964 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4122,"timestamp":"2025-11-08 07:45:56","response_size":993}
+2025-11-08 07:45:57,034 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4110,"timestamp":"2025-11-08 07:45:57","response_size":993}
+2025-11-08 07:52:07,580 - INFO - __main__ - 应用名称: app
+2025-11-08 07:52:07,580 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:52:07,580 - INFO - __main__ - 环境: development
+2025-11-08 07:52:07,580 - INFO - __main__ - 调试模式: False
+2025-11-08 07:52:07,580 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:53:15,156 - INFO - request - 请求: GET /
+2025-11-08 07:53:15,475 - INFO - request - 请求: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 07:53:15,789 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:53:15,790 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:53:15,791 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:53:15,791 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:53:15,796 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:53:15,798 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:53:16,171 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:53:16,173 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:53:16,176 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:53:16,178 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:53:16,179 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:53:16,423 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:53:16,425 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:53:16,508 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:53:16,509 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:53:16,512 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:53:16,524 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:53:16,840 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:53:17,012 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:53:17,015 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:53:17","response_size":366}
+2025-11-08 07:53:20,447 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:53:20,448 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:53:20,525 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:53:20,525 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:53:20,532 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4109,"timestamp":"2025-11-08 07:53:20","response_size":993}
+2025-11-08 07:53:20,614 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4104,"timestamp":"2025-11-08 07:53:20","response_size":993}
+2025-11-08 07:56:22,660 - INFO - request - 请求: GET /
+2025-11-08 07:56:22,915 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:56:23,022 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:56:23,068 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:56:23,068 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:56:23,069 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:56:23,069 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:56:23,227 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:56:23,385 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:56:23,546 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:56:23,556 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:56:23,556 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:56:23,557 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:56:23,563 - INFO - request - 请求: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 07:56:23,880 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:56:23,881 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:56:23,882 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:56:23,883 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:56:23,892 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:56:24,209 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:56:24,382 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:56:24,385 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":2,"timestamp":"2025-11-08 07:56:24","response_size":366}
+2025-11-08 07:56:24,526 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:56:27,895 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:56:27,895 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:56:27,895 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:56:27,895 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:56:28,003 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4122,"timestamp":"2025-11-08 07:56:28","response_size":993}
+2025-11-08 07:56:28,017 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4137,"timestamp":"2025-11-08 07:56:28","response_size":993}
+2025-11-08 07:57:48,106 - INFO - __main__ - 应用名称: app
+2025-11-08 07:57:48,106 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:57:48,106 - INFO - __main__ - 环境: development
+2025-11-08 07:57:48,106 - INFO - __main__ - 调试模式: False
+2025-11-08 07:57:48,106 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:58:13,128 - INFO - __main__ - 应用名称: app
+2025-11-08 07:58:13,128 - INFO - __main__ - 启动应用程序...
+2025-11-08 07:58:13,128 - INFO - __main__ - 环境: development
+2025-11-08 07:58:13,128 - INFO - __main__ - 调试模式: False
+2025-11-08 07:58:13,128 - INFO - __main__ - 服务地址: http://0.0.0.0:5000
+2025-11-08 07:58:26,845 - INFO - request - 请求: GET /
+2025-11-08 07:58:27,106 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:58:27,106 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:58:27,108 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:58:27,108 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:58:27,110 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:58:27,112 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:58:27,133 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:58:27,190 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:58:27,194 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:58:27,195 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:58:27,198 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:58:27,201 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:58:27,210 - INFO - request - 请求: GET /@vite/client
+2025-11-08 07:58:27,222 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:27,224 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:27,225 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:58:27,226 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:27,226 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:27,306 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:58:27,315 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:58:27,722 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:58:27,725 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":1,"timestamp":"2025-11-08 07:58:27","response_size":366}
+2025-11-08 07:58:31,023 - INFO - request - 请求: GET /
+2025-11-08 07:58:31,049 - INFO - request - 请求: GET /
+2025-11-08 07:58:31,060 - INFO - request - 请求: GET /
+2025-11-08 07:58:31,114 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:58:31,116 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:58:31,123 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:58:31,131 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:58:31,136 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:58:31,147 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:58:31,154 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:58:31,163 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:58:31,177 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:58:31,185 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:58:31,189 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:58:31,193 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:58:31,196 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:58:31,201 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:58:31,206 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:58:31,209 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:58:31,210 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:58:31,222 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:58:31,225 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:58:31,234 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:58:31,236 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:58:31,244 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:58:31,245 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:58:31,247 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:58:31,249 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:31,252 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:31,253 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:31,255 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:58:31,255 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:31,259 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:58:31,261 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:58:31,265 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:58:31,270 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:58:31,274 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:58:31,279 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:58:31,283 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:58:31,286 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:31,287 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:31,289 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:58:31,294 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:31,294 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:58:31,294 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:31,297 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:58:31,304 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:58:31,307 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:58:31,312 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:31,313 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:31,315 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:31,315 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:31,347 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4124,"timestamp":"2025-11-08 07:58:31","response_size":993}
+2025-11-08 07:58:31,350 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4126,"timestamp":"2025-11-08 07:58:31","response_size":993}
+2025-11-08 07:58:31,352 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:58:31,354 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:58:31,360 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:31,362 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:31,363 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:31,365 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:33,861 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:58:33,862 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:58:33,871 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:58:33,875 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:58:33,876 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":4,"timestamp":"2025-11-08 07:58:33","response_size":366}
+2025-11-08 07:58:33,877 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":1,"timestamp":"2025-11-08 07:58:33","response_size":366}
+2025-11-08 07:58:33,883 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:58:33,884 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:58:33,902 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:58:35,311 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:35,311 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:35,319 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:35,319 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:35,332 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:35,332 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:35,332 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:35,332 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:35,372 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:35,372 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:35,386 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:35,386 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:35,399 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4112,"timestamp":"2025-11-08 07:58:35","response_size":993}
+2025-11-08 07:58:35,404 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4117,"timestamp":"2025-11-08 07:58:35","response_size":993}
+2025-11-08 07:58:35,417 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4104,"timestamp":"2025-11-08 07:58:35","response_size":993}
+2025-11-08 07:58:35,419 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4106,"timestamp":"2025-11-08 07:58:35","response_size":993}
+2025-11-08 07:58:35,458 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4098,"timestamp":"2025-11-08 07:58:35","response_size":993}
+2025-11-08 07:58:35,467 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4105,"timestamp":"2025-11-08 07:58:35","response_size":993}
+2025-11-08 07:58:39,373 - INFO - request - 请求: GET /
+2025-11-08 07:58:39,625 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:58:39,719 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:58:39,745 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:58:39,752 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:58:39,752 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:58:39,753 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:58:39,934 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:58:40,069 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:58:40,259 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:58:40,260 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:58:40,260 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:58:40,261 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:58:40,263 - INFO - request - 请求: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 07:58:40,590 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:40,591 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:40,592 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:40,593 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:58:40,594 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:40,843 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:58:40,909 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:58:40,911 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":1,"timestamp":"2025-11-08 07:58:40","response_size":366}
+2025-11-08 07:58:41,090 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:58:42,545 - INFO - request - 请求: GET /
+2025-11-08 07:58:42,880 - INFO - request - 请求: GET /static/css/styles.css
+2025-11-08 07:58:42,884 - INFO - request - 请求: GET /static/css/pages/static.css
+2025-11-08 07:58:42,884 - INFO - request - 请求: GET /static/css/pages/dynamic.css
+2025-11-08 07:58:42,885 - INFO - request - 请求: GET /static/css/pages/settings.css
+2025-11-08 07:58:43,187 - INFO - request - 请求: GET /static/css/pages/home.css
+2025-11-08 07:58:43,192 - INFO - request - 请求: GET /static/js/app.js
+2025-11-08 07:58:43,193 - INFO - request - 请求: GET /static/js/pages/control.js
+2025-11-08 07:58:43,552 - INFO - request - 请求: GET /static/templates/pages/home.html
+2025-11-08 07:58:43,553 - INFO - request - 请求: GET /static/templates/pages/static.html
+2025-11-08 07:58:43,554 - INFO - request - 请求: GET /static/templates/pages/dynamic.html
+2025-11-08 07:58:43,555 - INFO - request - 请求: GET /static/templates/pages/settings.html
+2025-11-08 07:58:43,862 - INFO - request - 请求: GET /static/templates/pages/control.html
+2025-11-08 07:58:44,183 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:44,183 - INFO - request - 请求: POST /api/data/measurements
+2025-11-08 07:58:44,185 - INFO - request - 请求: GET /api/motors/custom
+2025-11-08 07:58:44,186 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:44,187 - INFO - app.services.node_red_service - 正在从Node-RED获取数据(GET优先): http://localhost:30004/get/datas
+2025-11-08 07:58:44,498 - INFO - request - 请求: GET /api/settings
+2025-11-08 07:58:44,605 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:44,606 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:44,606 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:44,606 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:44,687 - INFO - request - 请求: GET /api/data/hysteresis
+2025-11-08 07:58:44,690 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/hysteresis","method":"GET","duration_ms":3,"timestamp":"2025-11-08 07:58:44","response_size":366}
+2025-11-08 07:58:44,690 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4100,"timestamp":"2025-11-08 07:58:44","response_size":993}
+2025-11-08 07:58:44,698 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4107,"timestamp":"2025-11-08 07:58:44","response_size":993}
+2025-11-08 07:58:44,820 - INFO - request - 请求: GET /api/settings/connection
+2025-11-08 07:58:48,203 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:48,204 - WARNING - app.services.node_red_service - 无法连接到Node-RED服务
+2025-11-08 07:58:48,204 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:48,204 - INFO - app.api.data - Node-RED不可用，从数据库获取数据
+2025-11-08 07:58:48,307 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4122,"timestamp":"2025-11-08 07:58:48","response_size":993}
+2025-11-08 07:58:48,309 - INFO - app.utils.helpers - API调用: {"endpoint":"/api/data/measurements","method":"POST","duration_ms":4126,"timestamp":"2025-11-08 07:58:48","response_size":993}

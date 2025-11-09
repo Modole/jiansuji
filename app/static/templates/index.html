@@ -23,6 +23,7 @@
     </nav>
     <div class="header-controls">
       <select id="header-motor-select" class="header-select" title="选择电机型号"></select>
+      <button id="open-control-panel" class="btn primary" title="打开控制面板" onclick="window.AppPublic && window.AppPublic.openControlPage && window.AppPublic.openControlPage()">控制面板</button>
     </div>
     <div class="status">
       <span id="conn-status" class="status-dot offline"></span>
@@ -41,7 +42,143 @@
   <footer class="footer">© 测试系统</footer>
   <div id="toast-container"></div>
 
-  <script src="/static/js/app.js"></script>
+    <script src="/static/js/pages/control.js" defer></script>
+    <script src="/static/js/app.js"></script>
+  <!-- 控制面板弹窗 -->
+  <div id="control-modal" class="modal hidden">
+    <div class="modal-overlay" onclick="window.AppPublic && window.AppPublic.closeControlModal && window.AppPublic.closeControlModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="control-modal-title">控制面板</span>
+        <div class="modal-controls">
+          <button id="control-submit" class="btn primary" onclick="window.AppPublic && window.AppPublic.submitControlPanel && window.AppPublic.submitControlPanel()">下发设置</button>
+          <button id="control-close" class="btn" onclick="window.AppPublic && window.AppPublic.closeControlModal && window.AppPublic.closeControlModal()">关闭</button>
+        </div>
+      </div>
+      <div class="control-panel" style="padding:12px; overflow:auto; max-height: 72vh;">
+        <!-- 分区：编码器 -->
+        <h3 style="margin:8px 0 4px;">编码器</h3>
+        <div class="control-row">
+          <label>
+            <span>编码器1使能 (c)</span>
+            <input id="cp-c" type="checkbox" />
+          </label>
+          <label>
+            <span>编码器1复位 (a)</span>
+            <input id="cp-a" type="checkbox" />
+          </label>
+          <label>
+            <span>编码器1当前位置 (N1_Ch1_Encoder_Present_Position)</span>
+            <input id="cp-N1_Ch1_Encoder_Present_Position" type="number" step="1" />
+          </label>
+          <label>
+            <span>编码器2使能 (d)</span>
+            <input id="cp-d" type="checkbox" />
+          </label>
+          <label>
+            <span>编码器2复位 (b)</span>
+            <input id="cp-b" type="checkbox" />
+          </label>
+          <label>
+            <span>编码器2当前位置 (N2_Ch1_Encoder_Present_Position)</span>
+            <input id="cp-N2_Ch1_Encoder_Present_Position" type="number" step="1" />
+          </label>
+        </div>
+
+        <!-- 分区：扭矩传感器 -->
+        <h3 style="margin:12px 0 4px;">扭矩传感器</h3>
+        <div class="control-row">
+          <label>
+            <span>扭矩传感器使能 (e)</span>
+            <input id="cp-e" type="checkbox" />
+          </label>
+          <label>
+            <span>扭矩（Nm）(R_ReadDat[0])</span>
+            <input id="cp-R_ReadDat_0" type="number" step="0.0001" />
+          </label>
+          <label>
+            <span>扭矩（Nm）(R_ReadDat[4])</span>
+            <input id="cp-R_ReadDat_4" type="number" step="1" />
+          </label>
+        </div>
+
+        <!-- 分区：0轴 -->
+        <h3 style="margin:12px 0 4px;">0轴</h3>
+        <div class="control-row">
+          <label>
+            <span>0轴使能 (f)</span>
+            <input id="cp-f" type="checkbox" />
+          </label>
+          <label>
+            <span>0轴相对移动执行 (g)</span>
+            <input id="cp-g" type="checkbox" />
+          </label>
+          <label>
+            <span>0轴相对移动距离 (Distance2)</span>
+            <input id="cp-Distance2" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>0轴相对移动速度 (Velocity2)</span>
+            <input id="cp-Velocity2" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>0轴加速 (Acceleration2)</span>
+            <input id="cp-Acceleration2" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>0轴减速 (Deceleration2)</span>
+            <input id="cp-Deceleration2" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>0轴目标转矩 (tt)</span>
+            <input id="cp-tt" type="number" step="1" />
+          </label>
+        </div>
+
+        <!-- 分区：1轴 -->
+        <h3 style="margin:12px 0 4px;">1轴</h3>
+        <div class="control-row">
+          <label>
+            <span>1轴使能 (h)</span>
+            <input id="cp-h" type="checkbox" />
+          </label>
+          <label>
+            <span>1轴相对移动执行 (i)</span>
+            <input id="cp-i" type="checkbox" />
+          </label>
+          <label>
+            <span>1轴相对移动距离 (Distance3)</span>
+            <input id="cp-Distance3" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>1轴相对移动速度 (Velocity3)</span>
+            <input id="cp-Velocity3" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>1轴加速 (Acceleration3)</span>
+            <input id="cp-Acceleration3" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>1轴减速 (Deceleration3)</span>
+            <input id="cp-Deceleration3" type="number" step="0.000001" />
+          </label>
+          <label>
+            <span>1轴目标转矩 (tt1)</span>
+            <input id="cp-tt1" type="number" step="1" />
+          </label>
+        </div>
+
+        <!-- 分区：系统 -->
+        <h3 style="margin:12px 0 4px;">系统</h3>
+        <div class="control-row">
+          <label>
+            <span>报警复位 (reset)</span>
+            <input id="cp-reset" type="checkbox" />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="curve-modal" class="modal hidden">
     <div class="modal-overlay"></div>
     <div class="modal-content">

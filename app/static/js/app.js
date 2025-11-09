@@ -165,6 +165,112 @@
     }
   }
 
+  // 控制面板：采集与下发
+  function openControlPage(){
+    const url = `${location.origin}/#control`;
+    const win = window.open(url, 'control-panel', 'width=980,height=720,noopener');
+    if(!win){
+      // 弹窗被阻止则退化为当前页跳转
+      location.hash = '#control';
+    }
+  }
+  function openControlModal(){
+    const modal = document.getElementById('control-modal');
+    if(modal){ modal.classList.remove('hidden'); }
+  }
+  function closeControlModal(){
+    const modal = document.getElementById('control-modal');
+    if(modal){ modal.classList.add('hidden'); }
+  }
+  function collectControlPanelData(){
+    const getBool = (id) => !!document.getElementById(id)?.checked;
+    const getNum = (id) => {
+      const el = document.getElementById(id);
+      if(!el) return undefined;
+      const v = el.value;
+      return v === '' ? undefined : Number(v);
+    };
+    return {
+      // 编码器
+      c: getBool('cp-c'),
+      a: getBool('cp-a'),
+      N1_Ch1_Encoder_Present_Position: getNum('cp-N1_Ch1_Encoder_Present_Position'),
+      d: getBool('cp-d'),
+      b: getBool('cp-b'),
+      N2_Ch1_Encoder_Present_Position: getNum('cp-N2_Ch1_Encoder_Present_Position'),
+      // 扭矩
+      e: getBool('cp-e'),
+      'R_ReadDat[0]': getNum('cp-R_ReadDat_0'),
+      'R_ReadDat[4]': getNum('cp-R_ReadDat_4'),
+      // 0轴
+      f: getBool('cp-f'),
+      g: getBool('cp-g'),
+      Distance2: getNum('cp-Distance2'),
+      Velocity2: getNum('cp-Velocity2'),
+      Acceleration2: getNum('cp-Acceleration2'),
+      Deceleration2: getNum('cp-Deceleration2'),
+      tt: getNum('cp-tt'),
+      // 1轴
+      h: getBool('cp-h'),
+      i: getBool('cp-i'),
+      Distance3: getNum('cp-Distance3'),
+      Velocity3: getNum('cp-Velocity3'),
+      Acceleration3: getNum('cp-Acceleration3'),
+      Deceleration3: getNum('cp-Deceleration3'),
+      tt1: getNum('cp-tt1'),
+      // 系统
+      reset: getBool('cp-reset')
+    };
+  }
+  async function submitControlPanel(){
+    try{
+      const data = collectControlPanelData();
+      // 构造命令并过滤未填写项（只发送有值的键）
+      const payload = { command: 'control_panel_update' };
+      Object.keys(data).forEach(k => {
+        const v = data[k];
+        if(v !== undefined) payload[k] = v;
+      });
+      const raw = await fetchPostJson(CMD_ENDPOINT, payload);
+      showToast('控制指令已下发', 'success');
+      // 若后端返回 success 字段，判断提示
+      if(raw && raw.success === false){
+        showToast(raw.message || '下发失败', 'error');
+      }
+      return raw;
+    }catch(e){
+      console.error('控制面板下发失败', e);
+      showToast('控制下发失败', 'error');
+    }
+  }
+  function initControlPanel(){
+    const btnOpen = document.getElementById('open-control-panel');
+    const btnClose = document.getElementById('control-close');
+    const btnSubmit = document.getElementById('control-submit');
+    // 优先打开独立页面，其次回退到弹窗
+    if(btnOpen) btnOpen.addEventListener('click', () => {
+      try{ openControlPage(); }catch(_){ openControlModal(); }
+    });
+    if(btnClose) btnClose.addEventListener('click', closeControlModal);
+    // 点击遮罩关闭
+    const overlay = document.querySelector('#control-modal .modal-overlay');
+    if(overlay) overlay.addEventListener('click', closeControlModal);
+    if(btnSubmit) btnSubmit.addEventListener('click', async () => {
+      const res = await submitControlPanel();
+      if(res && (res.success || res.data)){
+        closeControlModal();
+      }
+    });
+  }
+  // 暴露到全局，避免闭包作用域问题
+  window.AppPublic = window.AppPublic || {};
+  window.AppPublic.__initControlPanel = initControlPanel;
+  // 暴露基础操作，便于HTML内联触发
+  window.AppPublic.openControlPage = openControlPage;
+  window.AppPublic.openControlModal = openControlModal;
+  window.AppPublic.closeControlModal = closeControlModal;
+  window.AppPublic.submitControlPanel = submitControlPanel;
+
   // 数据归一化
   function normalizeData(raw){
     const out = { timestamp: Date.now(), values: {} };
@@ -766,8 +872,9 @@
     refresh(ALL_KEYS);
   }
 
-  // 暴露必要函数供动态加载器调用
-  window.AppPublic = { bindToolbar, bindControls, initCharts, refresh, KEYS_STATIC, KEYS_DYNAMIC, setActiveNav, showToast, chartStore };
+  // 暴露必要函数供动态加载器调用（合并而非覆盖，避免丢失先前暴露的方法）
+  window.AppPublic = window.AppPublic || {};
+  Object.assign(window.AppPublic, { bindToolbar, bindControls, initCharts, refresh, KEYS_STATIC, KEYS_DYNAMIC, setActiveNav, showToast, chartStore });
 })();
 
 // 曲线与导出模块
@@ -2998,6 +3105,19 @@ function showPageFromHash() { try { /* noop for legacy callers */ } catch (_) {}
     if(name === 'home'){
       return;
     }
+    if(name === 'control'){
+      // 控制页面使用与弹窗相同的控件与提交逻辑
+      try {
+        if (window.ControlPage?.init) {
+          window.ControlPage.init();
+        } else {
+          window.AppPublic?.__initControlPanel?.();
+        }
+      } catch(e) {
+        console.warn('控制页面初始化失败', e);
+      }
+      return;
+    }
     if(name === 'static'){
       // 初始化采集控制按钮状态
       updateRecordingUI(hysteresisRecorder?.isRecording ?? isRecording);
@@ -3023,7 +3143,7 @@ function showPageFromHash() { try { /* noop for legacy callers */ } catch (_) {}
 
   function currentPageName(){
     const hash = (location.hash || '#home').replace('#','');
-    return ['home','static','dynamic','settings'].includes(hash) ? hash : 'home';
+    return ['home','static','dynamic','settings','control'].includes(hash) ? hash : 'home';
   }
 
   // legacy pageLoader disabled: navigation handled by initPageNavigation/showPage
@@ -3213,18 +3333,20 @@ async function initHysteresisCurve() {
 async function loadAllPages() {
   try {
     // 获取所有页面内容
-    const [homeRes, staticRes, dynamicRes, settingsRes] = await Promise.all([
+    const [homeRes, staticRes, dynamicRes, settingsRes, controlRes] = await Promise.all([
       fetch('/static/templates/pages/home.html'),
       fetch('/static/templates/pages/static.html'),
       fetch('/static/templates/pages/dynamic.html'),
-      fetch('/static/templates/pages/settings.html')
+      fetch('/static/templates/pages/settings.html'),
+      fetch('/static/templates/pages/control.html')
     ]);
     
-    const [homeHtml, staticHtml, dynamicHtml, settingsHtml] = await Promise.all([
+    const [homeHtml, staticHtml, dynamicHtml, settingsHtml, controlHtml] = await Promise.all([
       homeRes.text(),
       staticRes.text(),
       dynamicRes.text(),
-      settingsRes.text()
+      settingsRes.text(),
+      controlRes.text()
     ]);
     
     // 创建页面容器
@@ -3234,6 +3356,7 @@ async function loadAllPages() {
       ${staticHtml}
       ${dynamicHtml}
       ${settingsHtml}
+      ${controlHtml}
     `;
     
     // 初始化所有页面
@@ -3241,7 +3364,8 @@ async function loadAllPages() {
       window.AppPublic?.initFor?.('home'),
       window.AppPublic?.initFor?.('static'),
       window.AppPublic?.initFor?.('dynamic'),
-      window.AppPublic?.initFor?.('settings')
+      window.AppPublic?.initFor?.('settings'),
+      window.AppPublic?.initFor?.('control')
     ]);
     
     // 首次根据URL显示对应页面，避免外层容器未显示导致内层不可见
@@ -3358,7 +3482,14 @@ function initPageNavigation() {
 }
 
 // 启动应用程序
-document.addEventListener('DOMContentLoaded', initApp);
+  document.addEventListener('DOMContentLoaded', initApp);
+  document.addEventListener('DOMContentLoaded', () => {
+    try{
+      window.AppPublic?.__initControlPanel?.();
+    }catch(e){
+      console.warn('控制面板初始化失败', e);
+    }
+  });
 
 // 页面加载函数 - 已废弃，使用loadAllPages替代
 async function loadPage(name) {
